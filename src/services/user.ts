@@ -1,4 +1,3 @@
-import cache from 'helpers/rxjs-operators/cache';
 import IUser from 'interfaces/models/user';
 import IUserRole from 'interfaces/models/userRole';
 import { IPaginationParams, IPaginationResponse } from 'interfaces/pagination';
@@ -14,7 +13,7 @@ export class UserService {
   }
 
   public roles(refresh: boolean = false): Observable<IUserRole[]> {
-    return this.apiService.get('/user/roles').pipe(cache('user-service-roles', { refresh }));
+    return this.apiService.get('/user/roles');
   }
 
   public save(model: IUser): Observable<IUser> {
